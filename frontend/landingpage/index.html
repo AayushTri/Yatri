@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YATRI - Plan Smarter. Travel Safer.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>YATRI</h1>
+                    <span>Plan Smarter. Travel Safer.</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Plan Trip</a></li>
+                <li><a href="#">Destinations</a></li>
+                <li><a href="#">Trip History</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="notification-btn">
+                    <i class="far fa-bell"></i>
+                </button>
+                <button class="login-signup-btn">
+                    <span>Login/Signup</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="images/hero-bg.jpeg" alt="Mountain scenery" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>AI-Powered Trip Planning<br><span class="highlight">Made Simple</span></h1>
+            <p>Get personalized travel recommendations with real-time weather, optimized routes, and smart budget analysis.</p>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <span>Real-time Weather</span>
+                </div>
+                <div class="hero-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <span>Smart Route Optimization</span>
+                </div>
+                <div class="hero-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <span>Budget Estimation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-card safety">
+                <div class="feature-card-icon green">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="feature-card-content">
+                    <h3>Safety First</h3>
+                    <p>Weather alerts and route risk analysis for safe travel</p>
+                </div>
+            </div>
+            <div class="feature-card routes">
+                <div class="feature-card-icon blue">
+                    <i class="fas fa-route"></i>
+                </div>
+                <div class="feature-card-content">
+                    <h3>Best Routes</h3>
+                    <p>AI finds the safest and fastest routes for your journey</p>
+                </div>
+            </div>
+            <div class="feature-card budget">
+                <div class="feature-card-icon orange">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="feature-card-content">
+                    <h3>Stay on Budget</h3>
+                    <p>Detailed cost estimation to keep you within budget</p>
+                </div>
+            </div>
+            <div class="feature-card recommendations">
+                <div class="feature-card-icon purple">
+                    <i class="fas fa-hexagon-nodes"></i>
+                </div>
+                <div class="feature-card-content">
+                    <h3>Smart Recommendations</h3>
+                    <p>AI suggestions based on your preferences and conditions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Trips -->
+    <section class="popular-trips">
+        <div class="trips-header">
+            <div>
+                <h2>Popular Trips from Kathmandu</h2>
+                <div class="section-underline"></div>
+            </div>
+            <a href="#" class="view-all">View All Destinations <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="trips-carousel-wrapper">
+            <button class="carousel-btn prev-btn" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="trips-carousel" id="tripsCarousel">
+                <div class="trip-card">
+                    <div class="trip-image">
+                        <img src="images/pokhara.jpeg" alt="Pokhara">
+                        <div class="trip-rating">
+                            <i class="fas fa-star"></i> 4.8
+                        </div>
+                    </div>
+                    <div class="trip-info">
+                        <h3>Pokhara</h3>
+                        <p class="trip-details">200 km &bull; 6-7 hrs</p>
+                        <div class="trip-bottom">
+                            <div class="trip-weather good">
+                                <i class="fas fa-sun"></i> Good Weather
+                            </div>
+                            <div class="trip-cost">
+                                <span class="cost-amount">NPR 18,500</span>
+                                <span class="cost-label">Est. Cost</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip-card">
+                    <div class="trip-image">
+                        <img src="images/mustang.jpeg" alt="Mustang">
+                        <div class="trip-rating">
+                            <i class="fas fa-star"></i> 4.7
+                        </div>
+                        <div class="trip-risk">
+                            <i class="fas fa-exclamation-triangle"></i> High Risk
+                        </div>
+                    </div>
+                    <div class="trip-info">
+                        <h3>Mustang</h3>
+                        <p class="trip-details">280 km &bull; 10-12 hrs</p>
+                        <div class="trip-bottom">
+                            <div class="trip-weather rain">
+                                <i class="fas fa-cloud-rain"></i> Rain Alert
+                            </div>
+                            <div class="trip-cost">
+                                <span class="cost-amount">NPR 32,800</span>
+                                <span class="cost-label">Est. Cost</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip-card">
+                    <div class="trip-image">
+                        <img src="images/chitwan.jpeg" alt="Chitwan">
+                        <div class="trip-rating">
+                            <i class="fas fa-star"></i> 4.6
+                        </div>
+                    </div>
+                    <div class="trip-info">
+                        <h3>Chitwan</h3>
+                        <p class="trip-details">160 km &bull; 5-6 hrs</p>
+                        <div class="trip-bottom">
+                            <div class="trip-weather good">
+                                <i class="fas fa-sun"></i> Good Weather
+                            </div>
+                            <div class="trip-cost">
+                                <span class="cost-amount">NPR 15,200</span>
+                                <span class="cost-label">Est. Cost</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip-card">
+                    <div class="trip-image">
+                        <img src="images/bandipur.jpeg" alt="Bandipur">
+                        <div class="trip-rating">
+                            <i class="fas fa-star"></i> 4.5
+                        </div>
+                    </div>
+                    <div class="trip-info">
+                        <h3>Bandipur</h3>
+                        <p class="trip-details">140 km &bull; 4-5 hrs</p>
+                        <div class="trip-bottom">
+                            <div class="trip-weather good">
+                                <i class="fas fa-sun"></i> Good Weather
+                            </div>
+                            <div class="trip-cost">
+                                <span class="cost-amount">NPR 12,600</span>
+                                <span class="cost-label">Est. Cost</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="trip-card">
+                    <div class="trip-image">
+                        <img src="images/lumbini.jpeg" alt="Lumbini">
+                        <div class="trip-rating">
+                            <i class="fas fa-star"></i> 4.4
+                        </div>
+                    </div>
+                    <div class="trip-info">
+                        <h3>Lumbini</h3>
+                        <p class="trip-details">270 km &bull; 8-9 hrs</p>
+                        <div class="trip-bottom">
+                            <div class="trip-weather good">
+                                <i class="fas fa-sun"></i> Good Weather
+                            </div>
+                            <div class="trip-cost">
+                                <span class="cost-amount">NPR 14,000</span>
+                                <span class="cost-label">Est. Cost</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn next-btn" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Why Choose YATRI -->
+    <section class="why-yatri">
+        <div class="why-container">
+            <div class="why-left">
+                <h2>Why Choose YATRI?</h2>
+            </div>
+            <div class="why-stats">
+                <div class="stat-item">
+                    <i class="fas fa-compass stat-icon"></i>
+                    <h3>1,000+</h3>
+                    <p>Trips Planned</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-check-circle stat-icon"></i>
+                    <h3>98%</h3>
+                    <p>User Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-map-marked-alt stat-icon"></i>
+                    <h3>500+</h3>
+                    <p>Destinations</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-headset stat-icon"></i>
+                    <h3>24/7</h3>
+                    <p>AI Support</p>
+                </div>
+            </div>
+            <div class="why-testimonial">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>YATRI helped me plan the perfect trip to Pokhara. Saved money, time and ensured a safe journey!</p>
+                    <span class="testimonial-author">- Suman K., Traveler</span>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
