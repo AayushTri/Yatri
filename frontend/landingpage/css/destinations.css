@@ -1,0 +1,627 @@
+/* ===== DESTINATIONS HERO ===== */
+.dest-hero {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.dest-hero .hero-bg {
+    position: absolute;
+    inset: 0;
+}
+
+.dest-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dest-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.3) 75%, transparent 100%);
+}
+
+.dest-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 40px;
+}
+
+.dest-hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.dest-hero p {
+    font-size: 16px;
+    color: #555;
+    max-width: 500px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    padding: 8px 8px 8px 20px;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+}
+
+.search-icon {
+    color: #999;
+    margin-right: 12px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 10px 0;
+    font-family: inherit;
+}
+
+.search-btn {
+    width: 44px;
+    height: 44px;
+    background: #2d8a5e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.search-btn:hover {
+    background: #1a6b45;
+}
+
+/* ===== FEATURE BADGES ===== */
+.feature-badges {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
+    margin-top: -30px;
+    position: relative;
+    z-index: 3;
+}
+
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.badge-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.badge-icon.green {
+    background: #e8f5e9;
+    color: #2d8a5e;
+}
+
+.badge-item h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.badge-item p {
+    font-size: 12px;
+    color: #777;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    padding: 40px 40px 60px;
+}
+
+/* ===== FILTERS SIDEBAR ===== */
+.filters-sidebar {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    height: fit-content;
+    position: sticky;
+    top: 90px;
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.filters-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.clear-all {
+    background: none;
+    border: none;
+    color: #2d8a5e;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.clear-all:hover {
+    text-decoration: underline;
+}
+
+.filter-group {
+    margin-bottom: 24px;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: white;
+    outline: none;
+}
+
+.filter-group select:focus {
+    border-color: #2d8a5e;
+}
+
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    padding: 6px 14px;
+    background: #f5f5f5;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.tag:hover {
+    border-color: #2d8a5e;
+}
+
+.tag.active {
+    background: #2d8a5e;
+    color: white;
+}
+
+.budget-slider {
+    width: 100%;
+    accent-color: #2d8a5e;
+    height: 6px;
+    border-radius: 3px;
+    appearance: none;
+    background: #e8f5e9;
+    outline: none;
+}
+
+.budget-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #2d8a5e;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(45,138,94,0.3);
+}
+
+.budget-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #777;
+    margin-top: 6px;
+}
+
+.apply-filters-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2d8a5e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.apply-filters-btn:hover {
+    background: #1a6b45;
+}
+
+/* ===== DESTINATIONS AREA ===== */
+.destinations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.destinations-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.destinations-header .count {
+    font-size: 14px;
+    color: #777;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sort-select {
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    background: white;
+}
+
+.view-btn {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    transition: all 0.3s;
+}
+
+.view-btn:hover {
+    border-color: #2d8a5e;
+    color: #2d8a5e;
+}
+
+.view-btn.active {
+    background: #2d8a5e;
+    color: white;
+    border-color: #2d8a5e;
+}
+
+/* ===== DESTINATIONS GRID ===== */
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.dest-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.dest-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.dest-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.dest-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.dest-card:hover .dest-image img {
+    transform: scale(1.05);
+}
+
+.dest-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+.dest-badge.popular { background: #2d8a5e; }
+.dest-badge.adventure { background: #1976d2; }
+.dest-badge.nature { background: #388e3c; }
+.dest-badge.cultural { background: #7b1fa2; }
+
+.dest-rating {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dest-rating i {
+    color: #f5a623;
+    font-size: 11px;
+}
+
+.dest-info {
+    padding: 18px;
+}
+
+.dest-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.dest-subtitle {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 12px;
+}
+
+.dest-details {
+    margin-bottom: 14px;
+}
+
+.dest-details p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dest-details p i {
+    color: #2d8a5e;
+    width: 14px;
+}
+
+.dest-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f0f7f4;
+    border-radius: 10px;
+}
+
+.cost-label {
+    display: block;
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 2px;
+}
+
+.cost-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2d8a5e;
+}
+
+.cost-icon {
+    width: 36px;
+    height: 36px;
+    background: #2d8a5e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* ===== POPULAR INTEREST ===== */
+.popular-interest {
+    padding: 40px 40px 80px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.view-all {
+    color: #2d8a5e;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+.interest-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.interest-card {
+    position: relative;
+    height: 180px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.interest-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.interest-card:hover img {
+    transform: scale(1.1);
+}
+
+.interest-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.75) 100%);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+}
+
+.interest-icon {
+    width: 44px;
+    height: 44px;
+    background: #2d8a5e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.interest-icon.nature { background: #388e3c; }
+.interest-icon.cultural { background: #7b1fa2; }
+.interest-icon.spiritual { background: #f57c00; }
+.interest-icon.relax { background: #1976d2; }
+
+.interest-overlay h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.interest-overlay p {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* ===== LIST VIEW ===== */
+.destinations-grid.list-view {
+    grid-template-columns: 1fr;
+}
+
+.destinations-grid.list-view .dest-card {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+}
+
+.destinations-grid.list-view .dest-image {
+    height: 100%;
+    min-height: 200px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .feature-badges {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters-sidebar {
+        position: static;
+    }
+    
+    .interest-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dest-hero h1 {
+        font-size: 32px;
+    }
+    
+    .feature-badges {
+        grid-template-columns: 1fr;
+    }
+    
+    .interest-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .destinations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .destinations-grid.list-view .dest-card {
+        grid-template-columns: 1fr;
+    }
+}

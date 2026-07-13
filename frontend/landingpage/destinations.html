@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - YATRI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/destinations.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="logo-text">
+                    <h1>YATRI</h1>
+                    <span>Plan Smarter. Travel Safer.</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plan-trip.html">Plan Trip</a></li>
+                <li><a href="destinations.html" class="active">Destinations</a></li>
+                <li><a href="trip-history.html">Trip History</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="notification-btn"><i class="far fa-bell"></i></button>
+                <a href="log-in.html" class="login-signup-btn"><span>Login/Signup</span></a>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="dest-hero">
+        <div class="hero-bg">
+            <img src="images/scenery.jpeg" alt="Nepal mountains">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content container">
+            <h1>Explore Destinations</h1>
+            <p>Discover amazing places in Nepal. Get weather insights, travel info, and estimated costs for better trip planning.</p>
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search destinations, cities or attractions..." id="destSearch">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Badges -->
+    <section class="feature-badges container">
+        <div class="badge-item" data-animate>
+            <div class="badge-icon green"><i class="fas fa-cloud-sun"></i></div>
+            <div>
+                <h4>Real-time Weather</h4>
+                <p>Live updates for every place</p>
+            </div>
+        </div>
+        <div class="badge-item" data-animate>
+            <div class="badge-icon green"><i class="fas fa-shield-alt"></i></div>
+            <div>
+                <h4>Safe & Reliable</h4>
+                <p>Risk analysis for your safety</p>
+            </div>
+        </div>
+        <div class="badge-item" data-animate>
+            <div class="badge-icon green"><i class="fas fa-route"></i></div>
+            <div>
+                <h4>Best Routes</h4>
+                <p>Find fastest & safest routes</p>
+            </div>
+        </div>
+        <div class="badge-item" data-animate>
+            <div class="badge-icon green"><i class="fas fa-wallet"></i></div>
+            <div>
+                <h4>Budget Friendly</h4>
+                <p>Accurate cost estimation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content container">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar" data-animate>
+            <div class="filters-header">
+                <h3>Filters</h3>
+                <button class="clear-all" id="clearAll">Clear All</button>
+            </div>
+
+            <div class="filter-group">
+                <label>Region</label>
+                <select id="regionFilter">
+                    <option>All Regions</option>
+                    <option>Gandaki</option>
+                    <option>Bagmati</option>
+                    <option>Lumbini</option>
+                    <option>Koshi</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Travel Interest</label>
+                <div class="interest-tags">
+                    <span class="tag" data-interest="adventure">Adventure</span>
+                    <span class="tag" data-interest="culture">Culture</span>
+                    <span class="tag" data-interest="nature">Nature</span>
+                    <span class="tag" data-interest="relaxation">Relaxation</span>
+                    <span class="tag" data-interest="spiritual">Spiritual</span>
+                    <span class="tag" data-interest="food">Food</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Budget Range (NPR)</label>
+                <input type="range" min="0" max="50000" value="25000" class="budget-slider" id="budgetSlider">
+                <div class="budget-labels">
+                    <span>0</span>
+                    <span id="budgetValue">25,000</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Best Time to Visit</label>
+                <select id="seasonFilter">
+                    <option>Anytime</option>
+                    <option>Spring (Mar - May)</option>
+                    <option>Summer (Jun - Aug)</option>
+                    <option>Autumn (Sep - Nov)</option>
+                    <option>Winter (Dec - Feb)</option>
+                </select>
+            </div>
+
+            <button class="apply-filters-btn" id="applyFilters">
+                <i class="fas fa-filter"></i> Apply Filters
+            </button>
+        </aside>
+
+        <!-- Destinations Area -->
+        <div class="destinations-area">
+            <div class="destinations-header">
+                <div>
+                    <h2>Top Destinations</h2>
+                    <p class="count" id="destCount">48 destinations found</p>
+                </div>
+                <div class="header-controls">
+                    <select class="sort-select" id="sortSelect">
+                        <option>Sort by: Popularity</option>
+                        <option>Sort by: Rating</option>
+                        <option>Sort by: Cost (Low to High)</option>
+                        <option>Sort by: Cost (High to Low)</option>
+                    </select>
+                    <button class="view-btn active" id="gridView"><i class="fas fa-th-large"></i></button>
+                    <button class="view-btn" id="listView"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+
+            <div class="destinations-grid" id="destinationsGrid">
+                <!-- Pokhara -->
+                <div class="dest-card" data-animate data-region="gandaki" data-interest="nature" data-cost="18500" data-rating="4.8">
+                    <div class="dest-image">
+                        <img src="images/pokhara.jpeg" alt="Pokhara" onerror="this.src='images/scenery.jpg'">
+                        <span class="dest-badge popular">Popular</span>
+                        <span class="dest-rating"><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                    <div class="dest-info">
+                        <h3>Pokhara</h3>
+                        <p class="dest-subtitle">Lakeside City</p>
+                        <div class="dest-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Kaski, Gandaki</p>
+                            <p><i class="fas fa-road"></i> 200 km from Kathmandu</p>
+                            <p><i class="far fa-calendar"></i> Best Time: Sep – Nov</p>
+                            <p><i class="fas fa-temperature-half"></i> 22°C &nbsp; <i class="fas fa-sun"></i> Good Weather</p>
+                        </div>
+                        <div class="dest-cost">
+                            <div>
+                                <span class="cost-label">Est. Cost (3D/1N)</span>
+                                <span class="cost-amount">NPR 18,500</span>
+                            </div>
+                            <div class="cost-icon"><i class="fas fa-chart-simple"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mustang -->
+                <div class="dest-card" data-animate data-region="gandaki" data-interest="adventure" data-cost="32800" data-rating="4.7">
+                    <div class="dest-image">
+                        <img src="images/mustang.jpeg" alt="Mustang" onerror="this.src='images/scenery.jpg'">
+                        <span class="dest-badge adventure">Adventure</span>
+                        <span class="dest-rating"><i class="fas fa-star"></i> 4.7</span>
+                    </div>
+                    <div class="dest-info">
+                        <h3>Mustang</h3>
+                        <p class="dest-subtitle">The Last Forbidden Kingdom</p>
+                        <div class="dest-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Mustang, Gandaki</p>
+                            <p><i class="fas fa-road"></i> 280 km from Kathmandu</p>
+                            <p><i class="far fa-calendar"></i> Best Time: Mar – May</p>
+                            <p><i class="fas fa-temperature-half"></i> 18°C &nbsp; <i class="fas fa-cloud"></i> Cool Weather</p>
+                        </div>
+                        <div class="dest-cost">
+                            <div>
+                                <span class="cost-label">Est. Cost (3D/2N)</span>
+                                <span class="cost-amount">NPR 32,800</span>
+                            </div>
+                            <div class="cost-icon"><i class="fas fa-chart-simple"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chitwan -->
+                <div class="dest-card" data-animate data-region="bagmati" data-interest="nature" data-cost="15200" data-rating="4.6">
+                    <div class="dest-image">
+                        <img src="images/chitwan.jpeg" alt="Chitwan" onerror="this.src='images/scenery.jpg'">
+                        <span class="dest-badge nature">Nature</span>
+                        <span class="dest-rating"><i class="fas fa-star"></i> 4.6</span>
+                    </div>
+                    <div class="dest-info">
+                        <h3>Chitwan</h3>
+                        <p class="dest-subtitle">Wildlife & Nature</p>
+                        <div class="dest-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Chitwan, Bagmati</p>
+                            <p><i class="fas fa-road"></i> 160 km from Kathmandu</p>
+                            <p><i class="far fa-calendar"></i> Best Time: Oct – Apr</p>
+                            <p><i class="fas fa-temperature-half"></i> 28°C &nbsp; <i class="fas fa-sun"></i> Good Weather</p>
+                        </div>
+                        <div class="dest-cost">
+                            <div>
+                                <span class="cost-label">Est. Cost (2D/1N)</span>
+                                <span class="cost-amount">NPR 15,200</span>
+                            </div>
+                            <div class="cost-icon"><i class="fas fa-chart-simple"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bandipur -->
+                <div class="dest-card" data-animate data-region="gandaki" data-interest="culture" data-cost="12600" data-rating="4.5">
+                    <div class="dest-image">
+                        <img src="images/bandipur.jpeg" alt="Bandipur" onerror="this.src='images/scenery.jpg'">
+                        <span class="dest-badge cultural">Cultural</span>
+                        <span class="dest-rating"><i class="fas fa-star"></i> 4.5</span>
+                    </div>
+                    <div class="dest-info">
+                        <h3>Bandipur</h3>
+                        <p class="dest-subtitle">Heritage City</p>
+                        <div class="dest-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Tanahun, Gandaki</p>
+                            <p><i class="fas fa-road"></i> 140 km from Kathmandu</p>
+                            <p><i class="far fa-calendar"></i> Best Time: Year Round</p>
+                            <p><i class="fas fa-temperature-half"></i> 20°C &nbsp; <i class="fas fa-sun"></i> Pleasant</p>
+                        </div>
+                        <div class="dest-cost">
+                            <div>
+                                <span class="cost-label">Est. Cost (2D/1N)</span>
+                                <span class="cost-amount">NPR 12,600</span>
+                            </div>
+                            <div class="cost-icon"><i class="fas fa-chart-simple"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular by Interest -->
+    <section class="popular-interest container">
+        <div class="section-header">
+            <h2>Popular by Interest</h2>
+            <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="interest-grid">
+            <div class="interest-card" data-animate>
+                <img src="images/mustang.jpeg" alt="Adventure" onerror="this.src='images/scenery.jpg'">
+                <div class="interest-overlay">
+                    <div class="interest-icon"><i class="fas fa-hiking"></i></div>
+                    <h3>Adventure</h3>
+                    <p>12 Destinations</p>
+                </div>
+            </div>
+            <div class="interest-card" data-animate>
+                <img src="images/chitwan.jpeg" alt="Nature" onerror="this.src='images/scenery.jpg'">
+                <div class="interest-overlay">
+                    <div class="interest-icon nature"><i class="fas fa-leaf"></i></div>
+                    <h3>Nature</h3>
+                    <p>18 Destinations</p>
+                </div>
+            </div>
+            <div class="interest-card" data-animate>
+                <img src="images/bandipur.jpeg" alt="Cultural" onerror="this.src='images/scenery.jpg'">
+                <div class="interest-overlay">
+                    <div class="interest-icon cultural"><i class="fas fa-landmark"></i></div>
+                    <h3>Cultural</h3>
+                    <p>15 Destinations</p>
+                </div>
+            </div>
+            <div class="interest-card" data-animate>
+                <img src="images/lumbini.jpeg" alt="Spiritual" onerror="this.src='images/scenery.jpg'">
+                <div class="interest-overlay">
+                    <div class="interest-icon spiritual"><i class="fas fa-om"></i></div>
+                    <h3>Spiritual</h3>
+                    <p>10 Destinations</p>
+                </div>
+            </div>
+            <div class="interest-card" data-animate>
+                <img src="images/pokhara.jpeg" alt="Relaxation" onerror="this.src='images/scenery.jpg'">
+                <div class="interest-overlay">
+                    <div class="interest-icon relax"><i class="fas fa-umbrella-beach"></i></div>
+                    <h3>Relaxation</h3>
+                    <p>14 Destinations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-paper-plane"></i>
+                <div>
+                    <h4>YATRI</h4>
+                    <span>Plan Smarter. Travel Safer.</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>© 2026 YATRI. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/destinations.js"></script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip History - YATRI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/trip-history.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="logo-text">
+                    <h1>YATRI</h1>
+                    <span>Plan Smarter. Travel Safer.</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plan-trip.html">Plan Trip</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="trip-history.html" class="active">Trip History</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="notification-btn"><i class="far fa-bell"></i></button>
+                <a href="log-in.html" class="login-signup-btn"><span>Login/Signup</span></a>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="history-header">
+        <div class="header-bg">
+            <img src="images/scenery.jpeg" alt="Trip history">
+            <div class="header-overlay"></div>
+        </div>
+        <div class="header-content container">
+            <h1>Your Trip History</h1>
+            <p>View and manage all your past trips, recommendations, and travel insights in one place.</p>
+        </div>
+    </section>
+
+    <!-- Stats Row -->
+    <section class="stats-row container">
+        <div class="stat-card" data-animate>
+            <div class="stat-icon green"><i class="fas fa-briefcase"></i></div>
+            <div>
+                <p class="stat-label">Total Trips</p>
+                <h3>12</h3>
+                <span class="stat-sub">All time</span>
+            </div>
+        </div>
+        <div class="stat-card" data-animate>
+            <div class="stat-icon blue"><i class="fas fa-plane-departure"></i></div>
+            <div>
+                <p class="stat-label">Trips Completed</p>
+                <h3>8</h3>
+                <span class="stat-sub">67% of total</span>
+            </div>
+        </div>
+        <div class="stat-card" data-animate>
+            <div class="stat-icon orange"><i class="far fa-clock"></i></div>
+            <div>
+                <p class="stat-label">Upcoming Trips</p>
+                <h3>2</h3>
+                <span class="stat-sub">Next 30 days</span>
+            </div>
+        </div>
+        <div class="stat-card" data-animate>
+            <div class="stat-icon purple"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+                <p class="stat-label">Cancelled Trips</p>
+                <h3>2</h3>
+                <span class="stat-sub">17% of total</span>
+            </div>
+        </div>
+        <div class="stat-card" data-animate>
+            <div class="stat-icon green"><i class="fas fa-wallet"></i></div>
+            <div>
+                <p class="stat-label">Total Spent</p>
+                <h3>NPR 165,400</h3>
+                <span class="stat-sub">All time</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="history-main container">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar" data-animate>
+            <div class="filters-header">
+                <h3>Filters</h3>
+                <button class="clear-all">Clear All</button>
+            </div>
+
+            <div class="filter-group">
+                <label>Trip Status</label>
+                <select id="statusFilter">
+                    <option>All Status</option>
+                    <option>Completed</option>
+                    <option>Upcoming</option>
+                    <option>Cancelled</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Trip Type</label>
+                <div class="type-tags">
+                    <span class="tag active" data-filter="all">All</span>
+                    <span class="tag" data-filter="completed">Completed</span>
+                    <span class="tag" data-filter="upcoming">Upcoming</span>
+                    <span class="tag" data-filter="cancelled">Cancelled</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Date Range</label>
+                <div class="date-input">
+                    <i class="far fa-calendar"></i>
+                    <input type="text" placeholder="Select Date Range">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Sort By</label>
+                <select id="sortFilter">
+                    <option>Newest First</option>
+                    <option>Oldest First</option>
+                    <option>Highest Score</option>
+                    <option>Lowest Cost</option>
+                </select>
+            </div>
+
+            <button class="apply-filters-btn">
+                <i class="fas fa-filter"></i> Apply Filters
+            </button>
+        </aside>
+
+        <!-- Trips List -->
+        <div class="trips-area" data-animate>
+            <div class="trips-header">
+                <h3>Your Trips (12)</h3>
+                <div class="search-box">
+                    <input type="text" placeholder="Search by destination or trip name..." id="tripSearch">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <div class="trips-list">
+                <!-- Trip 1: Pokhara -->
+                <div class="trip-card" data-status="completed">
+                    <div class="trip-image">
+                        <img src="images/pokhara.jpeg" alt="Pokhara" onerror="this.src='images/scenery.jpg'">
+                        <span class="status-badge completed"><i class="fas fa-check-circle"></i> Completed</span>
+                    </div>
+                    <div class="trip-content">
+                        <div class="trip-top">
+                            <div>
+                                <h3>Pokhara Getaway</h3>
+                                <p class="trip-route"><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal → Pokhara, Nepal</p>
+                            </div>
+                            <button class="more-btn"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="trip-meta">
+                            <span><i class="far fa-calendar"></i> 10 May 2026 – 12 May 2026</span>
+                            <span><i class="fas fa-user-friends"></i> 2 Adults</span>
+                            <span><i class="fas fa-car"></i> Car</span>
+                        </div>
+                        <div class="trip-stats">
+                            <div>
+                                <p class="stat-name">Score</p>
+                                <p class="stat-value score">85/100</p>
+                            </div>
+                            <div>
+                                <p class="stat-name">Total Cost</p>
+                                <p class="stat-value cost">NPR 18,500</p>
+                            </div>
+                            <div>
+                                <p class="stat-name">Risk Level</p>
+                                <p class="stat-value risk-low">Low</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trip 2: Mustang -->
+                <div class="trip-card" data-status="upcoming">
+                    <div class="trip-image">
+                        <img src="images/mustang.jpeg" alt="Mustang" onerror="this.src='images/scenery.jpg'">
+                        <span class="status-badge upcoming"><i class="far fa-clock"></i> Upcoming</span>
+                    </div>
+                    <div class="trip-content">
+                        <div class="trip-top">
+                            <div>
+                                <h3>Mustang Adventure</h3>
+                                <p class="trip-route"><i class="fas fa-map-marker-alt"></i> Pokhara, Nepal → Mustang, Nepal</p>
+                            </div>
+                            <button class="more-btn"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="trip-meta">
+                            <span><i class="far fa-calendar"></i> 20 Jun 2026 – 24 Jun 2026</span>
+                            <span><i class="fas fa-user-friends"></i> 2 Adults</span>
+                            <span><i class="fas fa-car"></i> Car</span>
+                        </div>
+                        <div class="trip-stats">
+                            <div>
+                                <p class="stat-name">Score</p>
+                                <p class="stat-value score">78/100</p>
+                            </div>
+                            <div>
+                                <p class="stat-name">Total Cost</p>
+                                <p class="stat-value cost">NPR 32,800</p>
+                            </div>
+                            <div>
+                                <p class="stat-name">Risk Level</p>
+                                <p class="stat-value risk-med">Medium</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trip 3: Chitwan -->
+                <div class="trip-card" data-status="completed">
+                    <div class="trip-image">
+                        <img src="images/chitwan.jpeg" alt="Chitwan" onerror="this.src='images/scenery.jpg'">
+                        <span class="status-badge completed"><i class="fas fa-check-circle"></i> Completed</span>
+                    </div>
+                    <div class="trip-content">
+                        <div class="trip-top">
+                            <div>
+                                <h3>Chitwan Wildlife Trip</h3>
+                                <p class="trip-route"><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal → Chitwan, Nepal</p>
+                            </div>
+                            <button class="more-btn"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="trip-meta">
+                            <span><i class="far fa-calendar"></i> 05 Apr 2026 – 07 Apr 2026</span>
+                            <span><i class="fas fa-user-friends"></i> 2 Adults</span>
+                            <span><i class="fas fa-car"></i> Car</span>
+                        </div>
+                        <div class="trip-stats">
+                            <div>
+                                <p class="stat-name">Score</p>
+                                <p class="stat-value score">88/100</p>
+                            </div>
+                            <div>
+                                <p class="stat-name">Total Cost</p>
+                                <p class="stat-value cost">NPR 15,200</p>
+                            </div>
+                            <div>
+                                <p class="stat-name">Risk Level</p>
+                                <p class="stat-value risk-low">Low</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trip 4: Bandipur -->
+                <div class="trip-card" data-status="cancelled">
+                    <div class="trip-image">
+                        <img src="images/bandipur.jpeg" alt="Bandipur" onerror="this.src='images/scenery.jpg'">
+                        <span class="status-badge cancelled"><i class="fas fa-times-circle"></i> Cancelled</span>
+                    </div>
+                    <div class="trip-content">
+                        <div class="trip-top">
+                            <div>
+                                <h3>Bandipur Cultural Tour</h3>
+                                <p class="trip-route"><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal → Bandipur, Nepal</p>
+                            </div>
+                            <button class="more-btn"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="trip-meta">
+                            <span><i class="far fa-calendar"></i> 15 Mar 2026 – 16 Mar 2026</span>
+                            <span><i class="fas fa-user-friends"></i> 2 Adults</span>
+                            <span><i class="fas fa-car"></i> Car</span>
+                        </div>
+                        <div class="trip-stats">
+                            <div>
+                                <p class="stat-name">Score</p>
+                                <p class="stat-value score">55/100</p>
+                            </div>
+                            <div>
+                                <p class="stat-name">Total Cost</p>
+                                <p class="stat-value cost">NPR 9,800</p>
+                            </div>
+                            <div>
+                                <p class="stat-name">Risk Level</p>
+                                <p class="stat-value risk-high">High</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button><i class="fas fa-angle-double-left"></i></button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button><i class="fas fa-angle-double-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Highlights Sidebar -->
+        <aside class="highlights-sidebar" data-animate>
+            <div class="highlights-card">
+                <h3><i class="fas fa-chart-bar"></i> Travel Highlights</h3>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon blue"><i class="fas fa-trophy"></i></div>
+                    <div>
+                        <p class="hl-label">Most Visited Destination</p>
+                        <h4>Pokhara</h4>
+                        <p class="hl-sub">Visited 2 times</p>
+                    </div>
+                </div>
+
+                <div class="highlight-item">
+                    <div class="highlight-icon orange"><i class="fas fa-route"></i></div>
+                    <div>
+                        <p class="hl-label">Total Distance Traveled</p>
+                        <h4>1,240 km</h4>
+                        <p class="hl-sub">Across all trips</p>
+                    </div>
+                </div>
+
+                <div class="highlight-item">
+                    <div class="highlight-icon green"><i class="fas fa-sun"></i></div>
+                    <div>
+                        <p class="hl-label">Favorite Season</p>
+                        <h4>Spring (Mar – May)</h4>
+                        <p class="hl-sub">Best time for you</p>
+                    </div>
+                </div>
+
+                <div class="highlight-item">
+                    <div class="highlight-icon purple"><i class="fas fa-award"></i></div>
+                    <div>
+                        <p class="hl-label">Highest Trip Score</p>
+                        <h4>88/100</h4>
+                        <p class="hl-sub">Chitwan Wildlife Trip</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-lightbulb"></i> Travel Tip</h3>
+                <p>Book accommodations early and check weather updates regularly for a safe and enjoyable trip!</p>
+                <img src="images/scenery.jpeg" alt="Tip" class="tip-image" onerror="this.src='images/scenery.jpg'">
+            </div>
+        </aside>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-paper-plane"></i>
+                <div>
+                    <h4>YATRI</h4>
+                    <span>Plan Smarter. Travel Safer.</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>© 2026 YATRI. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/trip-history.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+/* ===== HERO SECTION ===== */
+.hero { position: relative; height: 520px; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; }
+.hero-image { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.3) 70%, transparent 100%); }
+.hero-content { position: relative; z-index: 2; padding: 80px 40px; height: 100%; display: flex; flex-direction: column; justify-content: center; max-width: 800px; }
+.hero-content h1 { font-size: 52px; font-weight: 800; line-height: 1.15; color: #1a1a2e; margin-bottom: 20px; }
+.hero-content p { font-size: 17px; color: #555; margin-bottom: 35px; line-height: 1.6; }
+.hero-features { display: flex; gap: 30px; margin-bottom: 35px; }
+.hero-feature { display: flex; align-items: center; gap: 10px; }
+.hero-feature .feature-icon { width: 40px; height: 40px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2d8a5e; font-size: 16px; }
+.hero-feature span { font-size: 14px; font-weight: 500; color: #333; }
+.hero-btn { align-self: flex-start; padding: 14px 32px; font-size: 16px; }
+
+/* ===== FEATURES ===== */
+.features { padding: 40px 0; background: #fafafa; }
+.features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.feature-card { display: flex; align-items: center; gap: 16px; padding: 24px; background: white; border-radius: 16px; border: 1px solid #eee; transition: all 0.3s ease; }
+.feature-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+.feature-card-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.feature-card-icon.green { background: #e8f5e9; color: #2d8a5e; }
+.feature-card-icon.blue { background: #e3f2fd; color: #1976d2; }
+.feature-card-icon.orange { background: #fff3e0; color: #f57c00; }
+.feature-card-icon.purple { background: #f3e5f5; color: #7b1fa2; }
+.feature-card-content h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.feature-card-content p { font-size: 13px; color: #777; line-height: 1.4; }
+
+/* ===== POPULAR TRIPS ===== */
+.popular-trips { padding: 60px 0; }
+.trips-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
+.trips-header h2 { font-size: 28px; font-weight: 700; color: #1a1a2e; }
+.section-underline { width: 40px; height: 4px; background: #2d8a5e; border-radius: 2px; margin-top: 8px; }
+.view-all { font-size: 14px; font-weight: 600; color: #2d8a5e; display: flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid #2d8a5e; border-radius: 8px; }
+.view-all:hover { background: #2d8a5e; color: white; }
+.trips-carousel-wrapper { position: relative; display: flex; align-items: center; gap: 16px; }
+.trips-carousel { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 0; scrollbar-width: none; flex: 1; }
+.trips-carousel::-webkit-scrollbar { display: none; }
+.carousel-btn { width: 44px; height: 44px; border: none; background: white; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; font-size: 16px; color: #333; flex-shrink: 0; transition: all 0.3s ease; z-index: 5; }
+.carousel-btn:hover { background: #2d8a5e; color: white; box-shadow: 0 6px 20px rgba(45,138,94,0.3); }
+.trip-card { min-width: 300px; max-width: 300px; background: white; border-radius: 16px; overflow: hidden; border: 1px solid #eee; transition: all 0.3s ease; flex-shrink: 0; }
+.trip-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+.trip-image { position: relative; height: 180px; overflow: hidden; }
+.trip-image img { width: 100%; height: 100%; object-fit: cover; }
+.trip-rating { position: absolute; top: 12px; left: 12px; background: #2d8a5e; color: white; padding: 4px 10px; border-radius: 20px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+.trip-rating i { font-size: 11px; }
+.trip-risk { position: absolute; top: 12px; left: 70px; background: #e74c3c; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+.trip-info { padding: 18px; }
+.trip-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.trip-details { font-size: 13px; color: #888; margin-bottom: 14px; }
+.trip-bottom { display: flex; justify-content: space-between; align-items: center; }
+.trip-weather { font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 5px; }
+.trip-weather.good { color: #f5a623; }
+.trip-weather.rain { color: #5dade2; }
+.trip-cost { text-align: right; }
+.cost-amount { display: block; font-size: 16px; font-weight: 700; color: #2d8a5e; }
+.cost-label { font-size: 11px; color: #999; }
+
+/* ===== POPULAR INTEREST ===== */
+.popular-interest { padding: 40px 0 60px; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.section-header h2 { font-size: 24px; font-weight: 700; }
+.interest-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.interest-card { position: relative; height: 180px; border-radius: 16px; overflow: hidden; cursor: pointer; }
+.interest-card img { width: 100%; height: 100%; object-fit: cover; }
+.interest-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end; color: white; }
+.interest-icon { width: 44px; height: 44px; background: #2d8a5e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 10px; }
+.interest-icon.nature { background: #388e3c; }
+.interest-icon.cultural { background: #7b1fa2; }
+.interest-icon.spiritual { background: #f57c00; }
+.interest-icon.relax { background: #1976d2; }
+.interest-overlay h3 { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+.interest-overlay p { font-size: 13px; opacity: 0.9; }
+
+/* ===== WHY YATRI ===== */
+.why-yatri { padding: 60px 0 40px; background: #f8fdf9; }
+.why-container { display: flex; align-items: center; gap: 40px; background: white; border-radius: 20px; padding: 40px; border: 1px solid #e8f5e9; }
+.why-left h2 { font-size: 28px; font-weight: 700; color: #2d8a5e; }
+.why-stats { display: flex; gap: 40px; flex: 1; }
+.stat-item { text-align: center; }
+.stat-icon { font-size: 28px; color: #2d8a5e; margin-bottom: 8px; }
+.stat-item h3 { font-size: 24px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.stat-item p { font-size: 13px; color: #777; }
+.why-testimonial { flex-shrink: 0; max-width: 320px; border-left: 3px solid #2d8a5e; padding-left: 20px; }
+.testimonial-quote { position: relative; }
+.quote-icon { font-size: 24px; color: #2d8a5e; margin-bottom: 10px; }
+.testimonial-quote p { font-size: 14px; color: #555; line-height: 1.6; font-style: italic; margin-bottom: 10px; }
+.testimonial-author { font-size: 13px; font-weight: 600; color: #333; }
+.carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: #ccc; cursor: pointer; transition: all 0.3s ease; }
+.dot.active { background: #2d8a5e; width: 28px; border-radius: 5px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .features-grid, .interest-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-container { flex-wrap: wrap; }
+    .why-stats { flex-wrap: wrap; gap: 24px; }
+}
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 36px; }
+    .hero-features { flex-direction: column; gap: 16px; }
+    .features-grid, .interest-grid { grid-template-columns: 1fr; }
+    .trip-card { min-width: 260px; max-width: 260px; }
+    .why-container { flex-direction: column; text-align: center; }
+    .why-testimonial { border-left: none; border-top: 3px solid #2d8a5e; padding-left: 0; padding-top: 20px; }
+}

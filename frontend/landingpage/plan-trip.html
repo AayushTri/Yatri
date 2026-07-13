@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Trip - YATRI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/plan-trip.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="logo-text">
+                    <h1>YATRI</h1>
+                    <span>Plan Smarter. Travel Safer.</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plan-trip.html" class="active">Plan Trip</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="trip-history.html">Trip History</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="notification-btn"><i class="far fa-bell"></i></button>
+                <a href="log-in.html" class="login-signup-btn"><span>Login/Signup</span></a>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="plan-header">
+        <div class="header-bg">
+            <img src="images/scenery.jpg" alt="Plan trip">
+            <div class="header-overlay"></div>
+        </div>
+        <div class="header-content container">
+            <div class="header-icon"><i class="fas fa-rocket"></i></div>
+            <div>
+                <h1>Plan Your Trip</h1>
+                <p>Enter your trip details and let YATRI's AI analyze weather, routes, and budget to give you the best recommendation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="plan-main container">
+        <!-- Left Column: Form -->
+        <div class="form-column">
+            <div class="form-card" data-animate>
+                <h3 class="form-title"><i class="far fa-calendar-alt"></i> Trip Details</h3>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>From</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="fromLocation" value="Kathmandu, Nepal">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group swap-group">
+                        <label>To</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="toLocation" value="Pokhara, Nepal">
+                            <button class="swap-btn" id="swapBtn" title="Swap locations">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Travel Dates</label>
+                        <div class="input-with-icon">
+                            <i class="far fa-calendar"></i>
+                            <input type="text" id="travelDates" value="20 Jun 2026 – 22 Jun 2026">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Trip Duration</label>
+                        <div class="input-with-icon">
+                            <i class="far fa-clock"></i>
+                            <input type="text" id="tripDuration" value="3 Days" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Transport Mode</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-car"></i>
+                            <select id="transportMode">
+                                <option value="car">Car</option>
+                                <option value="bus">Public Bus</option>
+                                <option value="flight">Flight</option>
+                                <option value="motorbike">Motorbike</option>
+                                <option value="trekking">Trekking</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Travelers</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user-friends"></i>
+                            <input type="text" id="travelers" value="2 Adults">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Budget (NPR)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-wallet"></i>
+                            <input type="number" id="budget" value="25000">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Travel Purpose</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                            <input type="text" id="purpose" value="Leisure / Adventure">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Food Preference</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-utensils"></i>
+                            <select id="foodPref">
+                                <option value="veg">Veg</option>
+                                <option value="non-veg">Non-Veg</option>
+                                <option value="both">Both</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Risk Tolerance</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-shield-alt"></i>
+                            <select id="riskTolerance">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="analyze-btn" id="analyzeBtn">
+                    <i class="fas fa-magic"></i> Analyze My Trip
+                </button>
+
+                <div class="safety-note">
+                    <div class="safety-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <h4>Safety First</h4>
+                        <p>Our AI checks real-time weather alerts and route risks to keep you safe on your journey.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What YATRI Analyzes -->
+            <div class="analyzes-card" data-animate>
+                <h3>What YATRI Analyzes</h3>
+                <div class="analyzes-grid">
+                    <div class="analyze-item">
+                        <div class="analyze-icon blue"><i class="fas fa-cloud-rain"></i></div>
+                        <h4>Real-time Weather</h4>
+                        <p>Live weather & risk alerts</p>
+                    </div>
+                    <div class="analyze-item">
+                        <div class="analyze-icon green"><i class="fas fa-route"></i></div>
+                        <h4>Route Optimization</h4>
+                        <p>Fastest & safest routes</p>
+                    </div>
+                    <div class="analyze-item">
+                        <div class="analyze-icon orange"><i class="fas fa-wallet"></i></div>
+                        <h4>Budget Estimation</h4>
+                        <p>Detailed cost breakdown</p>
+                    </div>
+                    <div class="analyze-item">
+                        <div class="analyze-icon purple"><i class="fas fa-brain"></i></div>
+                        <h4>AI Decision Engine</h4>
+                        <p>Smart feasibility recommendation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Results -->
+        <div class="results-column">
+            <div class="results-header">
+                <div>
+                    <h3><i class="fas fa-sparkles"></i> AI Analysis Results</h3>
+                    <p>Based on real-time data and AI calculations</p>
+                </div>
+                <span class="analysis-time">Analysis Time: 2.4s</span>
+            </div>
+
+            <!-- Score Card -->
+            <div class="score-card" data-animate>
+                <div class="score-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="bg" cx="50" cy="50" r="42"/>
+                        <circle class="progress" cx="50" cy="50" r="42"/>
+                    </svg>
+                    <div class="score-text">
+                        <span class="score-value" id="scoreValue">82</span>
+                        <span class="score-total">/100</span>
+                    </div>
+                </div>
+                <div class="score-info">
+                    <h3 class="feasible" id="tripStatus">Trip Feasible</h3>
+                    <p id="tripMessage">Great! Your trip looks good to go. Enjoy your journey with safe travels!</p>
+                </div>
+                <div class="score-decoration">
+                    <img src="images/scenery.jpg" alt="mountains">
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-grid">
+                <div class="summary-card" data-animate>
+                    <div class="summary-icon blue"><i class="fas fa-cloud-sun"></i></div>
+                    <div>
+                        <p class="summary-label">Weather</p>
+                        <h4 id="weatherStatus">Good</h4>
+                        <p class="summary-detail" id="weatherDetail">22°C – 28°C<br>No severe alerts</p>
+                    </div>
+                </div>
+                <div class="summary-card" data-animate>
+                    <div class="summary-icon purple"><i class="fas fa-route"></i></div>
+                    <div>
+                        <p class="summary-label">Route</p>
+                        <h4 id="routeStatus">Optimal</h4>
+                        <p class="summary-detail" id="routeDetail">200 km · 6h 15m<br>Via Prithvi Highway</p>
+                    </div>
+                </div>
+                <div class="summary-card" data-animate>
+                    <div class="summary-icon green"><i class="fas fa-wallet"></i></div>
+                    <div>
+                        <p class="summary-label">Est. Cost (NPR)</p>
+                        <h4 id="costStatus">18,500</h4>
+                        <p class="summary-detail" id="costDetail">Within Budget<br>74% of total budget</p>
+                    </div>
+                </div>
+                <div class="summary-card" data-animate>
+                    <div class="summary-icon purple"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <p class="summary-label">Risk Level</p>
+                        <h4 id="riskStatus">Low</h4>
+                        <p class="summary-detail" id="riskDetail">Safe conditions<br>for travel</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-card" data-animate>
+                <h4>Recommended Route</h4>
+                <div class="map-container">
+                    <div id="routeMap"></div>
+                    <div class="map-overlay-badge">
+                        <span id="mapDuration">6h 15m</span>
+                        <span id="mapDistance">200 km</span>
+                    </div>
+                </div>
+                <div class="route-info">
+                    <div class="route-main">
+                        <i class="fas fa-car"></i>
+                        <div>
+                            <strong id="routeTitle">Kathmandu → Pokhara</strong>
+                            <span>(Via Prithvi Highway)</span>
+                        </div>
+                    </div>
+                    <div class="route-stats">
+                        <span><i class="fas fa-road"></i> <span id="routeKm">200</span> km</span>
+                        <span><i class="far fa-clock"></i> <span id="routeTime">6h 15m</span></span>
+                        <span><i class="fas fa-coins"></i> Tolls: NPR 240</span>
+                    </div>
+                    <button class="view-map-btn" id="viewMapBtn">View on Map <i class="fas fa-external-link-alt"></i></button>
+                </div>
+            </div>
+
+            <!-- Bottom Grid: Cost + Alerts -->
+            <div class="bottom-grid">
+                <div class="cost-card" data-animate>
+                    <h4>Estimated Cost Breakdown</h4>
+                    <div class="cost-content">
+                        <div class="donut-chart">
+                            <canvas id="costChart" width="140" height="140"></canvas>
+                            <div class="donut-center">
+                                <span class="donut-amount" id="totalCost">18,500</span>
+                                <span class="donut-label">NPR</span>
+                            </div>
+                        </div>
+                        <div class="cost-legend">
+                            <div class="legend-item">
+                                <span class="dot fuel"></span>
+                                <span>Fuel</span>
+                                <span class="legend-value" id="fuelCost">NPR 6,800</span>
+                                <span class="legend-percent" id="fuelPercent">36.8%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="dot food"></span>
+                                <span>Food</span>
+                                <span class="legend-value" id="foodCost">NPR 4,500</span>
+                                <span class="legend-percent" id="foodPercent">24.3%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="dot acc"></span>
+                                <span>Accommodation</span>
+                                <span class="legend-value" id="accCost">NPR 5,000</span>
+                                <span class="legend-percent" id="accPercent">27.0%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="dot misc"></span>
+                                <span>Miscellaneous</span>
+                                <span class="legend-value" id="miscCost">NPR 2,200</span>
+                                <span class="legend-percent" id="miscPercent">11.9%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alerts-card" data-animate>
+                    <h4><i class="fas fa-exclamation-triangle"></i> Important Alerts</h4>
+                    <div class="alert-item success">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>No severe weather alerts</strong>
+                            <p>Weather conditions are good for travel.</p>
+                        </div>
+                    </div>
+                    <div class="alert-item warning">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <strong>Carry light woolens</strong>
+                            <p>Temperature may drop in the evening.</p>
+                        </div>
+                    </div>
+                    <div class="alert-item info">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <strong>Check vehicle condition</strong>
+                            <p>Ensure your vehicle is road-ready.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Recommendation -->
+            <div class="ai-recommendation" data-animate>
+                <i class="fas fa-lightbulb"></i>
+                <div>
+                    <strong>AI Recommendation</strong>
+                    <p id="aiRecommendation">This trip is feasible with low risk. Weather is pleasant, routes are clear, and your budget is well within the limit. Have a safe and memorable journey! 💚</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-paper-plane"></i>
+                <div>
+                    <h4>YATRI</h4>
+                    <span>Plan Smarter. Travel Safer.</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>© 2026 YATRI. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/plan-trip.js"></script>
+</body>
+</html>
